@@ -1,0 +1,11 @@
+---
+  - hosts: server
+    become: yes
+    tasks:
+      - docker_container:
+          name: uptimepusher
+          image: ubuntu
+          restart_policy: always
+          command: "/scripts/uptimepusher.sh"
+          volumes:
+            - "/mc/scripts:/scripts"

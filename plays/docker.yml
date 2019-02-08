@@ -1,0 +1,21 @@
+---
+  - hosts: server
+    become: yes
+    tasks:
+      - apt:
+          name:
+            - apt-transport-https
+            - ca-certificates
+            - curl
+            - software-properties-common
+            - python3-pip
+          update_cache: yes
+      - apt_key:
+          url: https://download.docker.com/linux/ubuntu/gpg
+      - apt_repository:
+          repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
+      - apt:
+          name: docker-ce
+          update_cache: yes
+      - pip:
+          name: docker

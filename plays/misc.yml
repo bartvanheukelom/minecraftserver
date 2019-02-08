@@ -1,0 +1,20 @@
+---
+  - hosts: server
+    become: yes
+    tasks:
+      - copy:
+          src: ../files/
+          dest: /mc/
+      - shell: "cd /mc/scripts && chmod +x *"
+      - file:
+          path: /mc/backups/d
+          state: directory
+          owner: root
+          group: root
+      - apt:
+          name: fdupes
+      - cron:
+          name: backups
+          minute: "*/10"
+          value: "/mc/scripts/backup_data.sh >> /mc/backups/cron.log 2>&1"
+

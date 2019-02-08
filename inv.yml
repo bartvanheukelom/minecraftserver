@@ -1,0 +1,6 @@
+all:
+  hosts:
+    server:
+      ansible_host: 3.122.127.130 # changes every time EC2 instance starts
+      ansible_ssh_user: ubuntu
+      ansible_python_interpreter: /usr/bin/python3
