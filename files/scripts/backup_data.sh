@@ -25,7 +25,8 @@ set -e
 echo "Removing junk"
 rm -r wip/minecraft_server*.jar wip/logs
 
-dest="backups/d/$(date +%s)"
+# TODO more readable time format
+dest="backups/d/$(date +%F)_$(date +%s)"
 echo "Move to $dest"
 mv wip "$dest"
 
@@ -33,7 +34,8 @@ echo "Before"
 du -sh backups/d/*
 
 echo "Deduping"
-fdupes -rL backups/d > /dev/null
+# TODO fdupes is too old, replace
+#fdupes -rL backups/d > /dev/null
 
 echo "After"
 du -sh backups/d/*
