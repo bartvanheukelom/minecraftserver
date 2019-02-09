@@ -9,7 +9,6 @@ Ansible config and some scripts to setup a personal Minecraft server.
 
 ## TODO
 
-- fix backup deduplication
 - installer script
 - UI for starting/stopping EC2 instance
 - backup to S3
