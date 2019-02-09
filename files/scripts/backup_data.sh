@@ -34,8 +34,7 @@ echo "Before"
 du -sh backups/d/*
 
 echo "Deduping"
-# TODO fdupes is too old, replace
-#fdupes -rL backups/d > /dev/null
+rdfind -makehardlinks true backups/d
 
 echo "After"
 du -sh backups/d/*

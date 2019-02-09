@@ -13,6 +13,9 @@
           group: root
       - apt:
           name: fdupes
+          state: absent
+      - apt:
+          name: rdfind
       - cron:
           name: backups
           minute: "*/10"
